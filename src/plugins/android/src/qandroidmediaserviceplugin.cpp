@@ -70,7 +70,7 @@ QMediaService *QAndroidMediaServicePlugin::create(const QString &key)
         return new QAndroidMediaService;
 
     if (key == QLatin1String(Q_MEDIASERVICE_CAMERA)
-            || key == QLatin1String(Q_MEDIASERVICE_AUDIOSOURCE)) {
+            /*|| key == QLatin1String(Q_MEDIASERVICE_AUDIOSOURCE)*/) {
         return new QAndroidCaptureService(key);
     }
 
@@ -91,8 +91,8 @@ QMediaServiceProviderHint::Features QAndroidMediaServicePlugin::supportedFeature
     if (service == Q_MEDIASERVICE_CAMERA)
         return QMediaServiceProviderHint::VideoSurface | QMediaServiceProviderHint::RecordingSupport;
 
-    if (service == Q_MEDIASERVICE_AUDIOSOURCE)
-        return QMediaServiceProviderHint::RecordingSupport;
+    // if (service == Q_MEDIASERVICE_AUDIOSOURCE)
+    //     return QMediaServiceProviderHint::RecordingSupport;
 
     return QMediaServiceProviderHint::Features();
 }
@@ -115,8 +115,8 @@ QList<QByteArray> QAndroidMediaServicePlugin::devices(const QByteArray &service)
         return devices;
     }
 
-    if (service == Q_MEDIASERVICE_AUDIOSOURCE)
-        return QAndroidAudioInputSelectorControl::availableDevices();
+    // if (service == Q_MEDIASERVICE_AUDIOSOURCE)
+    //     return QAndroidAudioInputSelectorControl::availableDevices();
 
     return QList<QByteArray>();
 }
@@ -132,8 +132,8 @@ QString QAndroidMediaServicePlugin::deviceDescription(const QByteArray &service,
         }
     }
 
-    if (service == Q_MEDIASERVICE_AUDIOSOURCE)
-        return QAndroidAudioInputSelectorControl::availableDeviceDescription(device);
+    // if (service == Q_MEDIASERVICE_AUDIOSOURCE)
+    //     return QAndroidAudioInputSelectorControl::availableDeviceDescription(device);
 
     return QString();
 }

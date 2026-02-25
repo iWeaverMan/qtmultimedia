@@ -14,7 +14,7 @@ qtHaveModule(quick) {
 }
 
 android {
-   SUBDIRS += android opensles
+   SUBDIRS += android opensles audiocapture
 }
 
 qnx {
